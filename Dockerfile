@@ -3,13 +3,16 @@ MAINTAINER Steven Yan
 
 ENV PIO_VERSION 0.12.0
 ENV SPARK_VERSION 2.1.1
-ENV ELASTICSEARCH_VERSION 5.5.2
-ENV HBASE_VERSION 1.2.6
+ENV ELASTICSEARCH_VERSION 6.3.1
+ENV HBASE_VERSION 2.1.0
+# ENV HBASE_VERSION 1.2.6
 
 ENV PIO_HOME /PredictionIO-${PIO_VERSION}-incubating
 ENV PATH=${PIO_HOME}/bin:$PATH
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV HOME /home/pio
+
+RUN apt-get update && apt-get install -my wget gnupg
 
 RUN apt-get update \
     && apt-get install -y --auto-remove --no-install-recommends curl libgfortran3 python-pip wget openjdk-8-jdk sudo \
